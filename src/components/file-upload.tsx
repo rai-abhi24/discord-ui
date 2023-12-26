@@ -10,9 +10,7 @@ interface IFileUploadProps {
 
 export const FileUpload = ({ value, onChange, endpoint }: IFileUploadProps) => {
     const [inputKey, setInputKey] = useState<number>(0);
-    const fileSrc = value
-        ? "https://avatars.githubusercontent.com/u/108968015?v=4"
-        : fileUploadIcon;
+    const fileSrc = value ? "https://avatars.githubusercontent.com/u/108968015?v=4" : fileUploadIcon;
 
     const removeUploadedImage = () => {
         onChange("");
@@ -29,8 +27,7 @@ export const FileUpload = ({ value, onChange, endpoint }: IFileUploadProps) => {
                 <img
                     src={fileSrc}
                     alt={value ? "Uploaded Image" : "File Upload Icon"}
-                    className={`text-[12px] w-full h-full ${value ? "rounded-full" : ""
-                        } fill-white`}
+                    className={`text-[12px] w-full h-full ${value ? "rounded-full" : ""} fill-white`}
                 />
                 {value && (
                     <div

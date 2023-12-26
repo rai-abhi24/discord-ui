@@ -1,7 +1,5 @@
 const SetupPage = () => {
-    return ( 
-        <div>SetUp</div>
-     );
-}
- 
+    return <div>SetUp</div>;
+};
+
 export default SetupPage;

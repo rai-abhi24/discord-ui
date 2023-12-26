@@ -14,22 +14,26 @@ export const servers: NavigationItemProps[] = [
     {
         id: 2,
         name: "Let's code lasja;kspopeiowjoi",
-        imageUrl: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        imageUrl:
+            "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
         id: 3,
         name: "New Server",
-        imageUrl: "https://images.pexels.com/photos/9039243/pexels-photo-9039243.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        imageUrl:
+            "https://images.pexels.com/photos/9039243/pexels-photo-9039243.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
         id: 4,
         name: "Chai aur code",
-        imageUrl: "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        imageUrl:
+            "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
         id: 5,
         name: "ABC",
-        imageUrl: "https://images.pexels.com/photos/1844547/pexels-photo-1844547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        imageUrl:
+            "https://images.pexels.com/photos/1844547/pexels-photo-1844547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
 ];
 
@@ -37,17 +41,11 @@ const NavigationSidebar = () => {
     return (
         <div className="space-y-4 bg-[#E3E5E8] dark:bg-[#1e1f22] w-full h-full flex flex-col items-center py-3">
             <NavigationAction />
-            <Separator
-                className="w-10 h-0.5 bg-white dark:bg-zinc-700 rounded-md mx-auto"
-            />
+            <Separator className="w-10 h-0.5 bg-white dark:bg-zinc-700 rounded-md mx-auto" />
             <ScrollArea className="w-full flex-1">
                 {servers.map((server) => (
                     <div key={server.id} className="mb-4">
-                        <NavigationItem
-                            id={server.id}
-                            name={server.name}
-                            imageUrl={server.imageUrl}
-                        />
+                        <NavigationItem id={server.id} name={server.name} imageUrl={server.imageUrl} />
                     </div>
                 ))}
             </ScrollArea>
@@ -56,6 +54,6 @@ const NavigationSidebar = () => {
             </div>
         </div>
     );
-}
+};
 
 export default NavigationSidebar;

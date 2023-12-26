@@ -13,25 +13,17 @@ export interface NavigationItemProps {
 
 const NavigationItem = ({ id, name, imageUrl }: NavigationItemProps) => {
     // const {serverId}  = useParams();
-    const [serverId, setServerId] = useState(0)
+    const [serverId, setServerId] = useState(0);
     const navigate = useNavigate();
 
     const handleClick = () => {
-        setServerId(id)
+        setServerId(id);
         navigate(`/servers/${id}`);
-    }
+    };
 
     return (
-        <ActionTooltip
-            label={name}
-            align={TOOLTIP_ALIGN_CENTER}
-            side={TOOLTIP_SIDE_RIGHT}
-        >
-            <button
-                key={id}
-                onClick={handleClick}
-                className="group relative flex items-center"
-            >
+        <ActionTooltip label={name} align={TOOLTIP_ALIGN_CENTER} side={TOOLTIP_SIDE_RIGHT}>
+            <button key={id} onClick={handleClick} className="group relative flex items-center">
                 <div
                     className={cn(
                         "absolute left-0 w-1 transition-all rounded-r-full bg-black dark:bg-white",
@@ -45,15 +37,11 @@ const NavigationItem = ({ id, name, imageUrl }: NavigationItemProps) => {
                         serverId === id && "bg-primary/10 text-primary rounded-[16px]"
                     )}
                 >
-                    <img
-                        src={imageUrl}
-                        alt={name}
-                        className="object-cover w-full h-full object-top"
-                    />
+                    <img src={imageUrl} alt={name} className="object-cover w-full h-full object-top" />
                 </div>
             </button>
         </ActionTooltip>
     );
-}
+};
 
 export default NavigationItem;

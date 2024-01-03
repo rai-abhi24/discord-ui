@@ -1,7 +1,7 @@
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 import { TOOLTIP_DELAY } from "@/lib/constants";
 
-interface ActionTooltipProps {
+interface IActionTooltipProps {
     label: string;
     children: React.ReactNode;
     side?: "top" | "right" | "bottom" | "left";

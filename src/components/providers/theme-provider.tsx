@@ -3,13 +3,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 type ThemeOptions = "dark" | "light" | "system";
 
-interface ThemeProviderProps {
+interface IThemeProviderProps {
     children: React.ReactNode;
     defaultTheme?: ThemeOptions;
     storageKey?: string;
 }
 
-interface ThemeProviderState {
+interface IThemeProviderState {
     theme: ThemeOptions;
     setTheme: (theme: ThemeOptions) => void;
 }

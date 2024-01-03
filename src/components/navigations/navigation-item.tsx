@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils/utils";
 import { TOOLTIP_ALIGN_CENTER, TOOLTIP_SIDE_RIGHT } from "@/lib/constants";
 import { useEffect, useState } from "react";
 
-export interface NavigationItemProps {
+export interface INavigationItemProps {
     id: number;
     name: string;
     imageUrl: string;

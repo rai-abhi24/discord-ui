@@ -1,21 +1,21 @@
 import { Hash, Volume2Icon } from "lucide-react";
 import React from "react";
 
-export type CustomRadioFieldType = "text" | "voice";
+export type CustomRadioFieldType = "text" | "voice" | "video";
 
-interface CustomRadioFieldProps {
+interface ICustomRadioFieldProps {
     title: string;
     type: CustomRadioFieldType;
     value: CustomRadioFieldType;
     handleOnChange: (value: string) => void;
 }
 
-export const CustomChannelTypeField: React.FC<CustomRadioFieldProps> = ({
+export const CustomChannelTypeField: React.FC<ICustomRadioFieldProps> = ({
     title,
     type,
     value,
     handleOnChange,
-}: CustomRadioFieldProps) => {
+}: ICustomRadioFieldProps) => {
     const fieldTypeText = () => (
         <label htmlFor={`${title}-radio`}>
             <div className="bg-[#2B2D31] group hover:bg-[#43444B]/70 group-checked:bg-[#43444B] w-full h-16 mt-2 flex shadow-md rounded px-4">
@@ -73,6 +73,7 @@ export const CustomChannelTypeField: React.FC<CustomRadioFieldProps> = ({
     const fieldComponents = {
         text: fieldTypeText,
         voice: fieldTypeVoice,
+        video: () => <></>,
     };
 
     return <>{type && fieldComponents[type]()}</>;

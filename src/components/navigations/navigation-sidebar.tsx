@@ -13,7 +13,7 @@ export const servers: NavigationItemProps[] = [
     },
     {
         id: 2,
-        name: "Let's code lasja;kspopeiowjoi",
+        name: "Let's code",
         imageUrl:
             "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },

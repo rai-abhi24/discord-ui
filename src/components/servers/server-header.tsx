@@ -12,7 +12,7 @@ import * as Constants from "@/lib/constants";
 import { openModal } from "@/features/modal-slice";
 import { useDispatch } from "react-redux";
 
-interface ServerHeaderProps {
+interface IServerHeaderProps {
     server: any;
     role: string;
 }

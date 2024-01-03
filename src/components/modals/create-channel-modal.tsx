@@ -33,11 +33,6 @@ interface IFormValues {
     channelType: CustomRadioFieldType;
 }
 
-const formInitialValues: IFormValues = {
-    channelName: "",
-    channelType: "text",
-};
-
 const formSchema = z.object({
     channelName: z.string(),
     channelType: z.string(),
@@ -45,11 +40,17 @@ const formSchema = z.object({
 
 export const CreateChannelModal: React.FC = () => {
     const dispatch = useDispatch();
-    const { isOpen, type } = useSelector((state: RootState) => state.modal);
+    const { isOpen, type, data } = useSelector((state: RootState) => state.modal);
     const isModalOpen = isOpen && type === Constants.MODAL_TYPE_CREATE_CHANNEL;
 
     const handleClose = () => {
         dispatch(closeModal());
+    };
+    console.log(data?.sectionType);
+    
+    const formInitialValues: IFormValues = {
+        channelName: "",
+        channelType: data?.sectionType || "voice",
     };
 
     const form = useForm({
@@ -69,7 +70,7 @@ export const CreateChannelModal: React.FC = () => {
                 </DialogHeader>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
-                        <div className="w-full flex flex-col px-4">
+                        <div className="w-full flex flex-col px-4 mb-[20px]">
                             <FormField
                                 name="channelType"
                                 render={({ field }) => (

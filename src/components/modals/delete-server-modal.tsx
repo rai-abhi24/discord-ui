@@ -73,7 +73,7 @@ export function DeleteServerModal() {
                         Cancel
                     </AlertDialogCancel>
                     <AlertDialogAction
-                        className="bg-red-500 text-white hover:bg-red-500/70"
+                        className="bg-red-500 text-white hover:bg-red-600/80 rounded"
                         onClick={() => matchServerName()}
                     >
                         Leave Server

@@ -8,7 +8,7 @@ interface IActionTooltipProps {
     align?: "start" | "center" | "end";
 }
 
-const ActionTooltip = ({ align, children, label, side }: ActionTooltipProps) => {
+const ActionTooltip = ({ align, children, label, side }: IActionTooltipProps) => {
     return (
         <TooltipProvider>
             <Tooltip delayDuration={TOOLTIP_DELAY}>

@@ -21,7 +21,7 @@ export const ServerSettingsModal = () => {
 
     return (
         <Dialog open={isModalopen} onOpenChange={handleClose}>
-            <DialogTrigger></DialogTrigger>
+            {/* <DialogTrigger></DialogTrigger> */}
             <DialogContent className="min-w-full h-full flex p-0 bg-[#313338]">
                 <div className="h-full w-1/3 border-r-2 bg-[#2B2D30] flex flex-col"></div>
                 <div className="w-2/3 px-10 py-16">

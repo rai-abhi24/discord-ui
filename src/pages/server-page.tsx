@@ -1,5 +1,3 @@
-const ServerPage = () => {
+export const ServerPage = () => {
     return <div>ServerPage</div>;
 };
-
-export default ServerPage;

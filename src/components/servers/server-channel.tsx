@@ -5,14 +5,17 @@ import { Edit, Hash, Lock, Mic, Trash, UserPlus, UserPlus2, Video } from "lucide
 import ActionTooltip from "../action-tooltip";
 import { useDispatch } from "react-redux";
 import { ModalTypes, openModal } from "@/features/modal-slice";
+import { useNavigate, useParams } from "react-router-dom";
+import { servers } from "../navigations/navigation-sidebar";
 
 interface IServerChannelProps {
     channel: any;
     role: string,
     serverData: any
 }
-export const ServerChannel = ({ channel, role, serverData }: ServerChannelProps) => {
+export const ServerChannel = ({ channel, role, serverData }: IServerChannelProps) => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const onAction = (e: any, modalType: ModalTypes) => {
         dispatch(openModal({
@@ -29,11 +32,11 @@ export const ServerChannel = ({ channel, role, serverData }: ServerChannelProps)
 
     const Icon = iconMap[channel.type]
 
-    const channelId = "1"
-
     const onClick = () => {
-        // router.push(`/servers/${params?.serverId}/channels/${channel.id}`)
+        navigate(`/servers/${servers[0].id}/channels/${channel.id}`)
     }
+
+    const { channelId } = useParams()
 
     return (
         <button

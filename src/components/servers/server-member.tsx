@@ -17,7 +17,7 @@ const roleIconMap: Record<MemberRoles, JSX.Element | null> = {
     admin: <ShieldAlert className="w-4 h-4 ml-2 text-rose-500" />,
 }
 
-export const ServerMember = ({ member, server }: ServerMemberProps) => {
+export const ServerMember = ({ member, server }: IServerMemberProps) => {
     const { role, profile, id } = member;
     const icon = roleIconMap[role as MemberRoles];
     const urlId = "101";
@@ -31,7 +31,7 @@ export const ServerMember = ({ member, server }: ServerMemberProps) => {
         >
             {icon}
             <UserAvatar src={profile?.imageUrl} />
-            <p className="text-sm font-semibold text-[#5BC770] transition">{profile?.name}</p>
+            <p className="text-sm font-semibold text-[#5BC770] transition line-clamp-1">{profile?.name}</p>
         </button>
     );
 };

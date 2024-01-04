@@ -14,19 +14,19 @@ interface IThemeProviderState {
     setTheme: (theme: ThemeOptions) => void;
 }
 
-const initialState: ThemeProviderState = {
+const initialState: IThemeProviderState = {
     theme: Constants.SYSTEM_THEME,
     setTheme: () => null,
 };
 
-const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+const ThemeProviderContext = createContext<IThemeProviderState>(initialState);
 
 export function ThemeProvider({
     children,
     defaultTheme = Constants.DEFAULT_UI_THEME,
     storageKey = Constants.DEFAULT_UI_THEME_NAME,
     ...props
-}: ThemeProviderProps) {
+}: IThemeProviderProps) {
     const [theme, setTheme] = useState<ThemeOptions>(
         () => (localStorage.getItem(storageKey) as ThemeOptions) || defaultTheme
     );

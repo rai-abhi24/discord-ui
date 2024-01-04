@@ -10,7 +10,7 @@ import { ServerChannel } from "./server-channel";
 import { ServerMember } from "./server-member";
 
 interface IServerSidebarProps {
-    serverId: number;
+    serverId?: string;
 }
 
 
@@ -24,6 +24,8 @@ const voiceChannelData = [
     { id: "22", name: "Voice Channel 2", type: "voice" },
     { id: "23", name: "Voice Channel 3", type: "voice" },
 ];
+
+export const allChannels = [...textChannelData, ...voiceChannelData]
 
 const memberData = [
     {
@@ -95,7 +97,7 @@ const data = [
     },
 ];
 
-const ServerSidebar = ({ serverId }: IServerSidebarProps) => {
+export const ServerSidebar = ({ serverId }: IServerSidebarProps) => {
     return (
         <div className="bg-[#F2F3F5] dark:bg-[#2B2D31] h-full flex flex-col">
             <ServerHeader server={servers} role="admin" />
@@ -165,5 +167,3 @@ const ServerSidebar = ({ serverId }: IServerSidebarProps) => {
         </div >
     );
 };
-
-export default ServerSidebar;

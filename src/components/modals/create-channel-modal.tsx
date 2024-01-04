@@ -40,17 +40,16 @@ const formSchema = z.object({
 
 export const CreateChannelModal: React.FC = () => {
     const dispatch = useDispatch();
-    const { isOpen, type, data } = useSelector((state: RootState) => state.modal);
+    const { isOpen, type } = useSelector((state: RootState) => state.modal);
     const isModalOpen = isOpen && type === Constants.MODAL_TYPE_CREATE_CHANNEL;
 
     const handleClose = () => {
         dispatch(closeModal());
     };
-    console.log(data?.sectionType);
-    
+
     const formInitialValues: IFormValues = {
         channelName: "",
-        channelType: data?.sectionType || "voice",
+        channelType: "text",
     };
 
     const form = useForm({

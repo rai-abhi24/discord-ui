@@ -6,19 +6,17 @@ import { TOOLTIP_ALIGN_CENTER, TOOLTIP_SIDE_RIGHT } from "@/lib/constants";
 import { useEffect, useState } from "react";
 
 export interface INavigationItemProps {
-    id: number;
+    id: string;
     name: string;
     imageUrl: string;
 }
 
-const NavigationItem = ({ id, name, imageUrl }: NavigationItemProps) => {
-    // const {serverId}  = useParams();
-    const [serverId, setServerId] = useState(0);
+const NavigationItem = ({ id, name, imageUrl }: INavigationItemProps) => {
+    const { serverId } = useParams();
     const navigate = useNavigate();
 
     const handleClick = () => {
-        setServerId(id);
-        navigate(`/servers/${id}`);
+        navigate(`/servers/${id}/channels/1`);
     };
 
     return (

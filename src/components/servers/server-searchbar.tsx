@@ -21,7 +21,7 @@ interface IServerSearchBarProps {
     }[]
 }
 
-export const ServerSearchBar = ({ data }: ServerSearchBarProps) => {
+export const ServerSearchBar = ({ data }: IServerSearchBarProps) => {
     const [open, setOpen] = useState(false)
 
     useEffect(() => {
@@ -60,7 +60,7 @@ export const ServerSearchBar = ({ data }: ServerSearchBarProps) => {
                         return (
                             <CommandGroup key={label} heading={label}>
                                 {data.map(({ id, icon, name }) => (
-                                    <CommandItem className="cursor-pointer">
+                                    <CommandItem key={id} className="cursor-pointer">
                                         {icon}
                                         <span>{name}</span>
                                     </CommandItem>

@@ -17,7 +17,7 @@ interface IServerHeaderProps {
     role: string;
 }
 
-const ServerHeader = ({ server, role }: ServerHeaderProps) => {
+const ServerHeader = ({ server, role }: IServerHeaderProps) => {
     const dispatch = useDispatch();
     const isAdmin = role === "admin";
     const isModerator = isAdmin || role === "moderator";

@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
 import { Input } from "../ui/input";
-import { Plus, Smile } from "lucide-react";
+import { Plus } from "lucide-react";
+import { EmojiPicker } from "../emoji-picker";
 
 interface IChatInputProps {
     name: string;
@@ -46,12 +47,16 @@ export const ChatInput = ({ name, apiUrl, query, type }: IChatInputProps) => {
                                         <Plus strokeWidth={3} className="text-white dark:text-[#313338] text-lg" />
                                     </button>
                                     <Input
-                                        className="px-14 py-6 bg-zinc-200/90 dark:bg-zinc-700/75 border-0 border-none text-zinc-600 dark:text-zinc-200 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-zinc-500"
+                                        autoComplete="off"
+                                        disabled={isLoading}
                                         placeholder={`Message ${type === "channel" ? "#" + name : name}`}
+                                        className="px-14 py-6 bg-zinc-200/90 dark:bg-zinc-700/75 border-0 border-none text-zinc-600 dark:text-zinc-200 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-zinc-500"
                                         {...field}
                                     />
                                     <div className="absolute top-3 right-8">
-                                        <Smile />
+                                        <EmojiPicker
+                                            onChange={(emoji: string) => field.onChange(`${field.value}${emoji}`)}
+                                        />
                                     </div>
                                 </div>
                             </FormControl>

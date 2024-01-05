@@ -17,6 +17,16 @@ const App = () => {
                     </MainLayout>
                 }
             />
+            <Route
+                path="servers/:serverId/members/:memberId"
+                element={
+                    <MainLayout>
+                        <ServerPageLayout>
+                            <ChannelPage />
+                        </ServerPageLayout>
+                    </MainLayout>
+                }
+            />
         </Routes>
     );
 };

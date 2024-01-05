@@ -32,7 +32,7 @@ export const ServerChannel = ({ channel, role, serverData }: IServerChannelProps
 
     const Icon = iconMap[channel.type]
 
-    const onClick = () => {
+    const handleClick = () => {
         navigate(`/servers/${servers[0].id}/channels/${channel.id}`)
     }
 
@@ -40,7 +40,7 @@ export const ServerChannel = ({ channel, role, serverData }: IServerChannelProps
 
     return (
         <button
-            onClick={onClick}
+            onClick={handleClick}
             className={cn(
                 "group px-2 py-1.5 rounded flex items-center gap-x-2 w-full hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition mb-1",
                 channelId === channel.id && "bg-zinc-700/20 dark:bg-zinc-700"

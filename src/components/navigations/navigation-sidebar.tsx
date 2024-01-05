@@ -2,7 +2,7 @@ import NavigationAction from "./navigation-action";
 
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ModeToggle } from "../mode-toggle";
+import { ThemeToggle } from "../theme-toggle";
 import NavigationItem, { INavigationItemProps } from "./navigation-item";
 
 export const servers: INavigationItemProps[] = [
@@ -50,7 +50,7 @@ export const NavigationSidebar = () => {
                 ))}
             </ScrollArea>
             <div>
-                <ModeToggle />
+                <ThemeToggle />
             </div>
         </div>
     );

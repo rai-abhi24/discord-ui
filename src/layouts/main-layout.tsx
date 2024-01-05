@@ -2,7 +2,7 @@ import { NavigationSidebar } from "@/components/navigations/navigation-sidebar";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className="h-screen">
+        <div className="h-screen font-custom">
             <div className="hidden md:flex h-full w-[72px] z-30 flex-col fixed inset-y-0">
                 <NavigationSidebar />
             </div>

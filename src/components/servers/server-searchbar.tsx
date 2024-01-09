@@ -6,48 +6,48 @@ import {
     CommandGroup,
     CommandInput,
     CommandItem,
-    CommandList
+    CommandList,
 } from "../ui/command";
 
 interface IServerSearchBarProps {
     data: {
         label: string;
-        type: string //"channel" | "member",
-        data: {
-            icon: React.ReactNode;
-            name: string;
-            id: string;
-        }[] | undefined
-    }[]
+        type: string; //"channel" | "member",
+        data:
+            | {
+                  icon: React.ReactNode;
+                  name: string;
+                  id: string;
+              }[]
+            | undefined;
+    }[];
 }
 
 export const ServerSearchBar = ({ data }: IServerSearchBarProps) => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         const down = (e: KeyboardEvent) => {
             if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-                e.preventDefault()
-                setOpen((open) => !open)
+                e.preventDefault();
+                setOpen((open) => !open);
             }
-        }
-        document.addEventListener("keydown", down)
-        return () => document.removeEventListener("keydown", down)
-    }, [])
+        };
+        document.addEventListener("keydown", down);
+        return () => document.removeEventListener("keydown", down);
+    }, []);
 
     return (
         <div className="py-2">
             <button
                 onClick={() => setOpen(true)}
-                className="group w-full rounded-lg p-2 flex items-center gap-x-2 hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition"
+                className="group flex w-full items-center gap-x-2 rounded-lg p-2 transition hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50"
             >
-                <Search className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
-                <p
-                    className="font-semibold text-sm text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition"
-                >
+                <Search className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />
+                <p className="text-sm font-semibold text-zinc-500 transition group-hover:text-zinc-600 dark:text-zinc-400 dark:group-hover:text-zinc-300">
                     Search
                 </p>
-                <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground ml-auto">
+                <kbd className="pointer-events-none ml-auto inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
                     <span className="text-xs">⌘</span>K
                 </kbd>
             </button>
@@ -60,13 +60,16 @@ export const ServerSearchBar = ({ data }: IServerSearchBarProps) => {
                         return (
                             <CommandGroup key={label} heading={label}>
                                 {data.map(({ id, icon, name }) => (
-                                    <CommandItem key={id} className="cursor-pointer">
+                                    <CommandItem
+                                        key={id}
+                                        className="cursor-pointer"
+                                    >
                                         {icon}
                                         <span>{name}</span>
                                     </CommandItem>
                                 ))}
                             </CommandGroup>
-                        )
+                        );
                     })}
                 </CommandList>
             </CommandDialog>

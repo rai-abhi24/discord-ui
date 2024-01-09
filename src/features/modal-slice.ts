@@ -13,16 +13,13 @@ export type ModalTypes =
     | "messageFile"
     | "deleteMessage";
 
-export type serverSectionTypes =
-    | "text"
-    | "voice"
-    | "video"
+export type serverSectionTypes = "text" | "voice" | "video";
 
 interface IModalData {
-    server?: any
-    channel?: any
-    channelType?: any
-    sectionType?: serverSectionTypes
+    server?: any;
+    channel?: any;
+    channelType?: any;
+    sectionType?: serverSectionTypes;
     apiUrl?: string;
     query?: Record<string, any>;
 }
@@ -43,7 +40,10 @@ const modalSlice = createSlice({
     name: "modal",
     initialState: initialModalState,
     reducers: {
-        openModal: (state: IModalState, action: PayloadAction<{ type: ModalTypes; data?: IModalData }>) => {
+        openModal: (
+            state: IModalState,
+            action: PayloadAction<{ type: ModalTypes; data?: IModalData }>,
+        ) => {
             state.isOpen = true;
             state.type = action.payload.type;
             state.data = action.payload?.data || {};

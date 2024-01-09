@@ -11,13 +11,13 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
+import { closeModal } from "@/features/modal-slice";
 import * as Constants from "@/lib/constants";
 import { removeEmojis } from "@/lib/helpers/helpers";
 import { RootState } from "@/store/store";
-import { closeModal } from "@/features/modal-slice";
 import { servers } from "../navigations/navigation-sidebar";
 
 export function DeleteServerModal() {
@@ -47,33 +47,38 @@ export function DeleteServerModal() {
 
     return (
         <AlertDialog open={isModalOpen}>
-            <AlertDialogContent className="bg-white dark:bg-[#313338] p-0 overflow-hidden">
-                <AlertDialogHeader className="pt-4 px-4">
-                    <AlertDialogTitle className="text-xl mb-2">Delete '{serverName} server'</AlertDialogTitle>
-                    <AlertDialogDescription className="text-white text-sm rounded px-2 py-3 bg-[#AF772B] dark:bg-[#F0B141]">
-                        Are you sure you want delete "<strong>{serverName}</strong>" server? This action cannot be
-                        undone.
+            <AlertDialogContent className="overflow-hidden bg-white p-0 dark:bg-[#313338]">
+                <AlertDialogHeader className="px-4 pt-4">
+                    <AlertDialogTitle className="mb-2 text-xl">
+                        Delete '{serverName} server'
+                    </AlertDialogTitle>
+                    <AlertDialogDescription className="rounded bg-[#AF772B] px-2 py-3 text-sm text-white dark:bg-[#F0B141]">
+                        Are you sure you want delete "
+                        <strong>{serverName}</strong>" server? This action
+                        cannot be undone.
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <div className="px-4">
-                    <Label className="uppercase text-xs font-bold text-zinc-500/70 dark:text-[#B1B6BD]">
+                    <Label className="text-xs font-bold uppercase text-zinc-500/70 dark:text-[#B1B6BD]">
                         Enter server name
                     </Label>
                     <Input
-                        className="bg-zinc-300/50 dark:bg-[#1E1F22] border-0 text-black focus-visible:ring-0 dark:text-white focus-visible:ring-offset-0 mt-2"
+                        className="mt-2 border-0 bg-zinc-300/50 text-black focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-[#1E1F22] dark:text-white"
                         onChange={(e) => setValue(e.target.value)}
                     />
-                    {error && <p className="text-red-400 text-xs mt-2">{error}</p>}
+                    {error && (
+                        <p className="mt-2 text-xs text-red-400">{error}</p>
+                    )}
                 </div>
-                <AlertDialogFooter className="px-4 py-4 bg-gray-100 dark:bg-[#2B2D30]">
+                <AlertDialogFooter className="bg-gray-100 px-4 py-4 dark:bg-[#2B2D30]">
                     <AlertDialogCancel
-                        className="hover:underline text-zinc-500/90 hover:bg-transparent bg-transparent border-none focus:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0"
+                        className="border-none bg-transparent text-zinc-500/90 hover:bg-transparent hover:underline focus:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0"
                         onClick={handleClose}
                     >
                         Cancel
                     </AlertDialogCancel>
                     <AlertDialogAction
-                        className="bg-red-500 text-white hover:bg-red-600/80 rounded"
+                        className="rounded bg-red-500 text-white hover:bg-red-600/80"
                         onClick={() => matchServerName()}
                     >
                         Leave Server

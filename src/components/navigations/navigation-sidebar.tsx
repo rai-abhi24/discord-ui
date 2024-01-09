@@ -1,7 +1,7 @@
 import NavigationAction from "./navigation-action";
 
-import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 import { ThemeToggle } from "../theme-toggle";
 import NavigationItem, { INavigationItemProps } from "./navigation-item";
 
@@ -39,13 +39,17 @@ export const servers: INavigationItemProps[] = [
 
 export const NavigationSidebar = () => {
     return (
-        <div className="space-y-4 bg-[#E3E5E8] dark:bg-[#1e1f22] w-full h-full flex flex-col items-center py-3">
+        <div className="flex h-full w-full flex-col items-center space-y-4 bg-[#E3E5E8] py-3 dark:bg-[#1e1f22]">
             <NavigationAction />
-            <Separator className="w-10 h-0.5 bg-white dark:bg-zinc-700 rounded-md mx-auto" />
+            <Separator className="mx-auto h-0.5 w-10 rounded-md bg-white dark:bg-zinc-700" />
             <ScrollArea className="w-full flex-1">
                 {servers.map((server) => (
                     <div key={server.id} className="mb-4">
-                        <NavigationItem id={server.id} name={server.name} imageUrl={server.imageUrl} />
+                        <NavigationItem
+                            id={server.id}
+                            name={server.name}
+                            imageUrl={server.imageUrl}
+                        />
                     </div>
                 ))}
             </ScrollArea>
@@ -55,4 +59,3 @@ export const NavigationSidebar = () => {
         </div>
     );
 };
-

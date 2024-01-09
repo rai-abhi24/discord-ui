@@ -1,18 +1,17 @@
+import { MODAL_TYPE_CREATE_CHANNEL } from "@/lib/constants";
 import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
 import { servers } from "../navigations/navigation-sidebar";
 import { ScrollArea } from "../ui/scroll-area";
-import ServerHeader from "./server-header";
-import { ServerSearchBar } from "./server-searchbar";
 import { Separator } from "../ui/separator";
-import { ServerSection } from "./server-section";
-import { MODAL_TYPE_CREATE_CHANNEL } from "@/lib/constants";
 import { ServerChannel } from "./server-channel";
+import ServerHeader from "./server-header";
 import { ServerMember } from "./server-member";
+import { ServerSearchBar } from "./server-searchbar";
+import { ServerSection } from "./server-section";
 
 interface IServerSidebarProps {
     serverId?: string;
 }
-
 
 const textChannelData = [
     { id: "1", name: "general", type: "text" },
@@ -25,7 +24,7 @@ const voiceChannelData = [
     { id: "23", name: "Voice Channel 3", type: "voice" },
 ];
 
-export const allChannels = [...textChannelData, ...voiceChannelData]
+export const allChannels = [...textChannelData, ...voiceChannelData];
 
 const memberData = [
     {
@@ -34,7 +33,7 @@ const memberData = [
             name: servers[0].name,
             imageUrl: servers[0].imageUrl,
         },
-        role: "admin"
+        role: "admin",
     },
     {
         id: "102",
@@ -42,21 +41,21 @@ const memberData = [
             name: servers[3].name,
             imageUrl: servers[3].imageUrl,
         },
-        role: "moderator"
+        role: "moderator",
     },
 ];
 
 const iconMap = {
-    "text": <Hash className="mr-2 h-4 w-4" />,
-    "audio": <Mic className="mr-2 h-4 w-4" />,
-    "video": <Video className="mr-2 h-4 w-4" />
+    text: <Hash className="mr-2 h-4 w-4" />,
+    audio: <Mic className="mr-2 h-4 w-4" />,
+    video: <Video className="mr-2 h-4 w-4" />,
 };
 
 const roleIconMap = {
     ["guest"]: null,
-    ["moderator"]: <ShieldCheck className="h-4 w-4 mr-2 text-indigo-500" />,
-    ["admin"]: <ShieldAlert className="h-4 w-4 mr-2 text-rose-500" />
-}
+    ["moderator"]: <ShieldCheck className="mr-2 h-4 w-4 text-indigo-500" />,
+    ["admin"]: <ShieldAlert className="mr-2 h-4 w-4 text-rose-500" />,
+};
 
 const data = [
     {
@@ -99,13 +98,11 @@ const data = [
 
 export const ServerSidebar = ({ serverId }: IServerSidebarProps) => {
     return (
-        <div className="bg-[#F2F3F5] dark:bg-[#2B2D31] h-full flex flex-col">
+        <div className="flex h-full flex-col bg-[#F2F3F5] dark:bg-[#2B2D31]">
             <ServerHeader server={servers} role="admin" />
             <ScrollArea className="flex-1 px-3">
-                <ServerSearchBar
-                    data={data}
-                />
-                <Separator className="my-1 mx-auto rounded-md bg-zinc-200 dark:bg-zinc-700" />
+                <ServerSearchBar data={data} />
+                <Separator className="mx-auto my-1 rounded-md bg-zinc-200 dark:bg-zinc-700" />
                 {textChannelData.length && (
                     <div className="mb-3">
                         <ServerSection
@@ -163,7 +160,7 @@ export const ServerSidebar = ({ serverId }: IServerSidebarProps) => {
                         />
                     ))}
                 </div>
-            </ScrollArea >
-        </div >
+            </ScrollArea>
+        </div>
     );
 };

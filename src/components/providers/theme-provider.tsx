@@ -1,5 +1,5 @@
-import * as Constants from "../../lib/constants";
 import { createContext, useContext, useEffect, useState } from "react";
+import * as Constants from "../../lib/constants";
 
 type ThemeOptions = "dark" | "light" | "system";
 
@@ -28,7 +28,8 @@ export function ThemeProvider({
     ...props
 }: IThemeProviderProps) {
     const [theme, setTheme] = useState<ThemeOptions>(
-        () => (localStorage.getItem(storageKey) as ThemeOptions) || defaultTheme
+        () =>
+            (localStorage.getItem(storageKey) as ThemeOptions) || defaultTheme,
     );
 
     useEffect(() => {
@@ -37,7 +38,9 @@ export function ThemeProvider({
         root.classList.remove(Constants.LIGHT_THEME, Constants.DARK_THEME);
 
         if (theme === Constants.SYSTEM_THEME) {
-            const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+            const systemTheme = window.matchMedia(
+                "(prefers-color-scheme: dark)",
+            ).matches
                 ? Constants.DARK_THEME
                 : Constants.LIGHT_THEME;
 

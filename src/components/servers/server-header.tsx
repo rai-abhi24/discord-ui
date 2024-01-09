@@ -1,4 +1,11 @@
-import { ChevronDown, LogOut, PlusCircle, Settings, Trash, UserPlus } from "lucide-react";
+import {
+    ChevronDown,
+    LogOut,
+    PlusCircle,
+    Settings,
+    Trash,
+    UserPlus,
+} from "lucide-react";
 
 import {
     DropdownMenu,
@@ -8,8 +15,8 @@ import {
     DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 
-import * as Constants from "@/lib/constants";
 import { openModal } from "@/features/modal-slice";
+import * as Constants from "@/lib/constants";
 import { useDispatch } from "react-redux";
 
 interface IServerHeaderProps {
@@ -53,50 +60,56 @@ const ServerHeader = ({ server, role }: IServerHeaderProps) => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild className="focus:outline-none">
-                <button className="w-full h-12 px-4 flex items-center border-b-2 border-neutral-200 dark:border-neutral-800 hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition text-md font-semibold">
+                <button className="text-md flex h-12 w-full items-center border-b-2 border-neutral-200 px-4 font-semibold transition hover:bg-zinc-700/10 dark:border-neutral-800 dark:hover:bg-zinc-700/50">
                     {server[0].name}
-                    <ChevronDown className="h-5 w-5 ml-auto" />
+                    <ChevronDown className="ml-auto h-5 w-5" />
                 </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 text-xs font-medium text-black dark:text-neutral-400 space-y-[2px]">
+            <DropdownMenuContent className="w-56 space-y-[2px] text-xs font-medium text-black dark:text-neutral-400">
                 {isModerator && (
                     <DropdownMenuItem
-                        className="text-indigo-600 dark:text-indigo-400 text-sm cursor-pointer px-3 py-2"
+                        className="cursor-pointer px-3 py-2 text-sm text-indigo-600 dark:text-indigo-400"
                         onClick={handleInvitePeopleClick}
                     >
                         Invite People
-                        <UserPlus className="h-4 w-4 ml-auto" />
+                        <UserPlus className="ml-auto h-4 w-4" />
                     </DropdownMenuItem>
                 )}
                 {isModerator && (
-                    <DropdownMenuItem className="text-sm cursor-pointer px-3 py-2" onClick={handleServerSettingsClick}>
+                    <DropdownMenuItem
+                        className="cursor-pointer px-3 py-2 text-sm"
+                        onClick={handleServerSettingsClick}
+                    >
                         Server Settings
-                        <Settings className="h-4 w-4 ml-auto" />
+                        <Settings className="ml-auto h-4 w-4" />
                     </DropdownMenuItem>
                 )}
                 {isModerator && (
-                    <DropdownMenuItem className="text-sm cursor-pointer px-3 py-2" onClick={handleCreateChannelClick}>
+                    <DropdownMenuItem
+                        className="cursor-pointer px-3 py-2 text-sm"
+                        onClick={handleCreateChannelClick}
+                    >
                         Create Channel
-                        <PlusCircle className="h-4 w-4 ml-auto" />
+                        <PlusCircle className="ml-auto h-4 w-4" />
                     </DropdownMenuItem>
                 )}
                 {isModerator && <DropdownMenuSeparator />}
                 {isAdmin && (
                     <DropdownMenuItem
-                        className="text-rose-500 text-sm cursor-pointer px-3 py-2"
+                        className="cursor-pointer px-3 py-2 text-sm text-rose-500"
                         onClick={handleDeleteServerClick}
                     >
                         Delete Server
-                        <Trash className="h-4 w-4 ml-auto" />
+                        <Trash className="ml-auto h-4 w-4" />
                     </DropdownMenuItem>
                 )}
                 {!isAdmin && (
                     <DropdownMenuItem
-                        className="text-rose-500 text-sm cursor-pointer px-3 py-2"
+                        className="cursor-pointer px-3 py-2 text-sm text-rose-500"
                         onClick={handleLeaveServerClick}
                     >
                         Leave Server
-                        <LogOut className="h-4 w-4 ml-auto" />
+                        <LogOut className="ml-auto h-4 w-4" />
                     </DropdownMenuItem>
                 )}
             </DropdownMenuContent>

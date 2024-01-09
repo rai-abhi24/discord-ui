@@ -1,4 +1,9 @@
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { TOOLTIP_DELAY } from "@/lib/constants";
 
 interface IActionTooltipProps {
@@ -8,13 +13,18 @@ interface IActionTooltipProps {
     align?: "start" | "center" | "end";
 }
 
-const ActionTooltip = ({ align, children, label, side }: IActionTooltipProps) => {
+const ActionTooltip = ({
+    align,
+    children,
+    label,
+    side,
+}: IActionTooltipProps) => {
     return (
         <TooltipProvider>
             <Tooltip delayDuration={TOOLTIP_DELAY}>
                 <TooltipTrigger asChild>{children}</TooltipTrigger>
                 <TooltipContent align={align} side={side}>
-                    <p className="font-semibold text-sm">{label}</p>
+                    <p className="text-sm font-semibold">{label}</p>
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>

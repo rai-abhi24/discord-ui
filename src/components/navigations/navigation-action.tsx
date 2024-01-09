@@ -1,8 +1,8 @@
 import { Plus } from "lucide-react";
 
-import * as Constants from "@/lib/constants";
 import ActionTooltip from "@/components/action-tooltip";
 import { openModal } from "@/features/modal-slice";
+import * as Constants from "@/lib/constants";
 import { useDispatch } from "react-redux";
 
 const NavigationAction = () => {
@@ -12,7 +12,7 @@ const NavigationAction = () => {
         dispatch(
             openModal({
                 type: Constants.MODAL_TYPE_CREATE_SERVER,
-            })
+            }),
         );
     };
 
@@ -23,9 +23,15 @@ const NavigationAction = () => {
                 label={Constants.TOOLTIP_LABEL_ADD_SERVER}
                 side={Constants.TOOLTIP_SIDE_RIGHT}
             >
-                <button className="group flex items-center" onClick={handleClick}>
-                    <div className="h-12 w-12 mx-3 flex justify-center items-center rounded-[24px] group-hover:rounded-[16px] overflow-hidden transition-all bg-background dark:bg-neutral-700 group-hover:bg-emerald-500">
-                        <Plus className="group-hover:text-white text-emerald-500 transition" width={25} />
+                <button
+                    className="group flex items-center"
+                    onClick={handleClick}
+                >
+                    <div className="mx-3 flex h-12 w-12 items-center justify-center overflow-hidden rounded-[24px] bg-background transition-all group-hover:rounded-[16px] group-hover:bg-emerald-500 dark:bg-neutral-700">
+                        <Plus
+                            className="text-emerald-500 transition group-hover:text-white"
+                            width={25}
+                        />
                     </div>
                 </button>
             </ActionTooltip>

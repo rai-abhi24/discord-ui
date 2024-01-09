@@ -1,7 +1,9 @@
-import * as z from "zod";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
+import { FileUpload } from "@/components/file-upload";
+import { Button } from "@/components/ui/button";
 import {
     Dialog,
     DialogContent,
@@ -10,11 +12,16 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import * as Constants from "@/lib/constants";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { FileUpload } from "@/components/file-upload";
+import * as Constants from "@/lib/constants";
 
 interface IFormValues {
     name: string;
@@ -49,17 +56,21 @@ const InitialModal = () => {
 
     return (
         <Dialog open>
-            <DialogContent className="bg-white dark:bg-[#313338] text-black p-0 overflow-hidden">
-                <DialogHeader className="pt-8 px-6">
-                    <DialogTitle className="text-2xl text-center font-bold dark:text-white">
+            <DialogContent className="overflow-hidden bg-white p-0 text-black dark:bg-[#313338]">
+                <DialogHeader className="px-6 pt-8">
+                    <DialogTitle className="text-center text-2xl font-bold dark:text-white">
                         Create your server
                     </DialogTitle>
                     <DialogDescription className="text-center text-zinc-500 dark:text-[#B1B6BD]">
-                        Give your server a personality with a name and image. You can always change it later.
+                        Give your server a personality with a name and image.
+                        You can always change it later.
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                    <form
+                        onSubmit={form.handleSubmit(onSubmit)}
+                        className="space-y-8"
+                    >
                         <div className="space-y-8 px-6">
                             <div className="flex justify-center">
                                 <FormField
@@ -83,20 +94,24 @@ const InitialModal = () => {
                                 control={form.control}
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70 dark:text-[#B1B6BD]">
+                                        <FormLabel className="text-xs font-bold uppercase text-zinc-500 dark:text-[#B1B6BD] dark:text-secondary/70">
                                             Server name
                                         </FormLabel>
                                         <FormControl>
                                             <div>
                                                 <Input
                                                     disabled={isLoading}
-                                                    className="bg-zinc-300/50 dark:bg-[#1E1F22] border-0 text-black focus-visible:ring-0 dark:text-white focus-visible:ring-offset-0"
+                                                    className="border-0 bg-zinc-300/50 text-black focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-[#1E1F22] dark:text-white"
                                                     autoFocus
                                                     {...field}
                                                 />
-                                                <span className="text-zinc-500 dark:text-[#B1B6BD] text-[11px]">
-                                                    By creating the server, you agree to our
-                                                    <a href="#" className="text-[#3CA8F7]">
+                                                <span className="text-[11px] text-zinc-500 dark:text-[#B1B6BD]">
+                                                    By creating the server, you
+                                                    agree to our
+                                                    <a
+                                                        href="#"
+                                                        className="text-[#3CA8F7]"
+                                                    >
                                                         {" "}
                                                         Community Guidelines
                                                     </a>
@@ -109,8 +124,13 @@ const InitialModal = () => {
                                 )}
                             />
                         </div>
-                        <DialogFooter className="px-6 py-4 bg-gray-100 dark:bg-[#2B2D30]">
-                            <Button variant="primary" disabled={isLoading} type="submit" size="primary">
+                        <DialogFooter className="bg-gray-100 px-6 py-4 dark:bg-[#2B2D30]">
+                            <Button
+                                variant="primary"
+                                disabled={isLoading}
+                                type="submit"
+                                size="primary"
+                            >
                                 Create
                             </Button>
                         </DialogFooter>

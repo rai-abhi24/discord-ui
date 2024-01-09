@@ -45,4 +45,4 @@ export const ChannelType = {
     TEXT: "text",
     AUDIO: "voice",
     VIDEO: "video",
-}
+};

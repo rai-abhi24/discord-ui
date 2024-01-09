@@ -13,6 +13,6 @@ const store = configureStore({
     devTools: process.env.NODE_ENV !== "production",
 });
 
-export type { RootState, ModalReducerType };
+export type { ModalReducerType, RootState };
 
 export default store;

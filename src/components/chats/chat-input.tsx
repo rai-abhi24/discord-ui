@@ -1,10 +1,10 @@
-import * as z from "zod";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Plus } from "lucide-react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { EmojiPicker } from "../emoji-picker";
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
 import { Input } from "../ui/input";
-import { Plus } from "lucide-react";
-import { EmojiPicker } from "../emoji-picker";
 
 interface IChatInputProps {
     name: string;
@@ -15,21 +15,21 @@ interface IChatInputProps {
 
 const inputFormSchema = z.object({
     content: z.string().min(1),
-})
+});
 
 export const ChatInput = ({ name, apiUrl, query, type }: IChatInputProps) => {
     const inputForm = useForm<z.infer<typeof inputFormSchema>>({
         resolver: zodResolver(inputFormSchema),
         defaultValues: {
-            content: ""
-        }
-    })
+            content: "",
+        },
+    });
 
     const isLoading = inputForm.formState.isSubmitting;
 
     const onSubmit = (values: z.infer<typeof inputFormSchema>) => {
         console.log(values);
-    }
+    };
 
     return (
         <Form {...inputForm}>
@@ -41,21 +41,30 @@ export const ChatInput = ({ name, apiUrl, query, type }: IChatInputProps) => {
                         <FormItem>
                             <FormControl>
                                 <div className="relative px-4 pb-6">
-                                    <button
-                                        className="absolute top-3 left-8 bg-zinc-500 dark:bg-zinc-400 hover:bg-zinc-600 dark:hover:bg-zinc-300 rounded-full w-[24px] h-[24px] transition p-1 flex items-center justify-center"
-                                    >
-                                        <Plus strokeWidth={3} className="text-white dark:text-[#313338] text-lg" />
+                                    <button className="absolute left-8 top-3 flex h-[24px] w-[24px] items-center justify-center rounded-full bg-zinc-500 p-1 transition hover:bg-zinc-600 dark:bg-zinc-400 dark:hover:bg-zinc-300">
+                                        <Plus
+                                            strokeWidth={3}
+                                            className="text-lg text-white dark:text-[#313338]"
+                                        />
                                     </button>
                                     <Input
                                         autoComplete="off"
                                         disabled={isLoading}
-                                        placeholder={`Message ${type === "channel" ? "#" + name : name}`}
-                                        className="px-14 py-6 bg-zinc-200/90 dark:bg-zinc-700/75 border-0 border-none text-zinc-600 dark:text-zinc-200 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-zinc-500"
+                                        placeholder={`Message ${
+                                            type === "channel"
+                                                ? "#" + name
+                                                : name
+                                        }`}
+                                        className="border-0 border-none bg-zinc-200/90 px-14 py-6 text-zinc-600 placeholder:text-zinc-500 focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-zinc-700/75 dark:text-zinc-200"
                                         {...field}
                                     />
-                                    <div className="absolute top-3 right-8">
+                                    <div className="absolute right-8 top-3">
                                         <EmojiPicker
-                                            onChange={(emoji: string) => field.onChange(`${field.value}${emoji}`)}
+                                            onChange={(emoji: string) =>
+                                                field.onChange(
+                                                    `${field.value}${emoji}`,
+                                                )
+                                            }
                                         />
                                     </div>
                                 </div>
@@ -66,4 +75,4 @@ export const ChatInput = ({ name, apiUrl, query, type }: IChatInputProps) => {
             </form>
         </Form>
     );
-}
+};

@@ -1,12 +1,14 @@
-import { Hash } from "lucide-react"
+import { Hash } from "lucide-react";
 
 export const ChatWelcome = () => {
     return (
-        <div className="px-4 space-y-2 mb-4">
-            <div className="bg-zinc-500 dark:bg-zinc-700 w-16 h-16 rounded-full flex justify-center items-center">
-                <Hash className="w-10 h-10"/>
+        <div className="mb-4 space-y-2 px-4">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-zinc-500 dark:bg-zinc-700">
+                <Hash className="h-10 w-10" />
             </div>
-            <p className="text-white text-xl md:text-3xl font-bold font-custom">Welcome to</p>
+            <p className="font-custom text-xl font-bold text-white md:text-3xl">
+                Welcome to
+            </p>
         </div>
-    )
-}
+    );
+};

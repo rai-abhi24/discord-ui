@@ -1,9 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
 import ActionTooltip from "../action-tooltip";
 
-import { cn } from "@/lib/utils/utils";
 import { TOOLTIP_ALIGN_CENTER, TOOLTIP_SIDE_RIGHT } from "@/lib/constants";
-import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils/utils";
 
 export interface INavigationItemProps {
     id: string;
@@ -20,22 +19,35 @@ const NavigationItem = ({ id, name, imageUrl }: INavigationItemProps) => {
     };
 
     return (
-        <ActionTooltip label={name} align={TOOLTIP_ALIGN_CENTER} side={TOOLTIP_SIDE_RIGHT}>
-            <button key={id} onClick={handleClick} className="group relative flex items-center">
+        <ActionTooltip
+            label={name}
+            align={TOOLTIP_ALIGN_CENTER}
+            side={TOOLTIP_SIDE_RIGHT}
+        >
+            <button
+                key={id}
+                onClick={handleClick}
+                className="group relative flex items-center"
+            >
                 <div
                     className={cn(
-                        "absolute left-0 w-1 transition-all rounded-r-full bg-black dark:bg-white",
+                        "absolute left-0 w-1 rounded-r-full bg-black transition-all dark:bg-white",
                         serverId !== id && "group-hover:h-5",
-                        serverId === id ? "h-9" : "h-2"
+                        serverId === id ? "h-9" : "h-2",
                     )}
                 />
                 <div
                     className={cn(
-                        "relative w-12 h-12 rounded-full group group-hover:rounded-[16px] transition-all overflow-hidden mx-3 flex",
-                        serverId === id && "bg-primary/10 text-primary rounded-[16px]"
+                        "group relative mx-3 flex h-12 w-12 overflow-hidden rounded-full transition-all group-hover:rounded-[16px]",
+                        serverId === id &&
+                            "rounded-[16px] bg-primary/10 text-primary",
                     )}
                 >
-                    <img src={imageUrl} alt={name} className="object-cover w-full h-full object-top" />
+                    <img
+                        src={imageUrl}
+                        alt={name}
+                        className="h-full w-full object-cover object-top"
+                    />
                 </div>
             </button>
         </ActionTooltip>

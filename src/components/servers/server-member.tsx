@@ -2,6 +2,7 @@ import { removeEmojis } from "@/lib/helpers/helpers";
 import { cn } from "@/lib/utils/utils";
 import { ShieldAlert, ShieldCheck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import ActionTooltip from "../action-tooltip";
 import { UserAvatar } from "../user-avatar";
 
 interface IServerMemberProps {
@@ -35,11 +36,22 @@ export const ServerMember = ({ member, server }: IServerMemberProps) => {
                 id === urlId && "bg-zinc-700/20 dark:bg-zinc-700",
             )}
         >
-            {icon}
             <UserAvatar src={profile?.imageUrl} />
-            <p className="line-clamp-1 text-sm font-semibold text-[#5BC770] transition">
-                {userName}
-            </p>
+            <div className="flex w-full items-center justify-between">
+                <p
+                    className={cn(
+                        "line-clamp-1 text-sm font-semibold transition",
+                        role === "admin"
+                            ? "text-yellow-400"
+                            : role === "moderator"
+                              ? "text-orange-500"
+                              : "text-[#5BC770]",
+                    )}
+                >
+                    {userName}
+                </p>
+                <ActionTooltip label={role}>{icon}</ActionTooltip>
+            </div>
         </button>
     );
 };

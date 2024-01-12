@@ -71,12 +71,21 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        loginAnimation: {
+          from: {
+            transform: 'scale(0) translateY(20px) translateZ(0)',
+          },
+          to: {
+            transform: 'scale(1) translateY(0) translateZ(0)',
+          },
+        },
+        animation: {
+          "accordion-down": "accordion-down 0.2s ease-out",
+          "accordion-up": "accordion-up 0.2s ease-out",
+          'login': 'loginAnimation 0.5s ease-out',
+        },
       },
     },
-  },
-  plugins: [require("tailwindcss-animate")],
+    plugins: [require("tailwindcss-animate")],
+  }
 }

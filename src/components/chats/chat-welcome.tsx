@@ -21,7 +21,9 @@ export const ChatWelcome = ({ channel, type }: IChatWelcomeProps) => {
                 {type === "channel"
                     ? `This is the start of the #${name} channel.`
                     : `This is the start of conversation with ${name}.`}
-            </p>
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-zinc-500 dark:bg-zinc-700">
+                <Hash className="h-10 w-10" />
+            </div>
         </div>
     );
 };

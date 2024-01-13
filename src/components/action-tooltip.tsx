@@ -11,6 +11,7 @@ interface IActionTooltipProps {
     children: React.ReactNode;
     side?: "top" | "right" | "bottom" | "left";
     align?: "start" | "center" | "end";
+    className?: string;
 }
 
 const ActionTooltip = ({
@@ -18,12 +19,13 @@ const ActionTooltip = ({
     children,
     label,
     side,
+    className,
 }: IActionTooltipProps) => {
     return (
         <TooltipProvider>
             <Tooltip delayDuration={TOOLTIP_DELAY}>
                 <TooltipTrigger asChild>{children}</TooltipTrigger>
-                <TooltipContent align={align} side={side}>
+                <TooltipContent align={align} side={side} className={className}>
                     <p className="text-sm font-semibold">{label}</p>
                 </TooltipContent>
             </Tooltip>

@@ -8,30 +8,30 @@ import NavigationItem, { INavigationItemProps } from "./navigation-item";
 export const servers: INavigationItemProps[] = [
     {
         id: "1",
-        name: "🐼 Code with abhi",
+        name: "🐼 code-with-abhi",
         imageUrl: "https://avatars.githubusercontent.com/u/108968015?v=4",
     },
     {
         id: "2",
-        name: "Let's code",
+        name: "let's-code",
         imageUrl:
             "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
         id: "3",
-        name: "New Server",
+        name: "new-server",
         imageUrl:
             "https://images.pexels.com/photos/9039243/pexels-photo-9039243.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
         id: "4",
-        name: "Chai aur code",
+        name: "chai-aur-code",
         imageUrl:
             "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
         id: "5",
-        name: "ABC",
+        name: "ravi-kant",
         imageUrl:
             "https://images.pexels.com/photos/1844547/pexels-photo-1844547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },

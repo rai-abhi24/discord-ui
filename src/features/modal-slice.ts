@@ -19,6 +19,7 @@ interface IModalData {
     server?: any;
     channel?: any;
     channelType?: any;
+    message?: any;
     sectionType?: serverSectionTypes;
     apiUrl?: string;
     query?: Record<string, any>;
@@ -31,9 +32,9 @@ interface IModalState {
 }
 
 const initialModalState: IModalState = {
-    type: null,
     data: {},
     isOpen: false,
+    type: null,
 };
 
 const modalSlice = createSlice({

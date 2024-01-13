@@ -38,10 +38,26 @@ const memberData = [
     {
         id: "102",
         profile: {
+            name: servers[1].name,
+            imageUrl: servers[1].imageUrl,
+        },
+        role: "moderator",
+    },
+    {
+        id: "103",
+        profile: {
             name: servers[3].name,
             imageUrl: servers[3].imageUrl,
         },
-        role: "moderator",
+        role: "guest",
+    },
+    {
+        id: "104",
+        profile: {
+            name: servers[4].name,
+            imageUrl: servers[4].imageUrl,
+        },
+        role: "guest",
     },
 ];
 

@@ -18,7 +18,11 @@ export const ChannelPage = () => {
                 type="channel"
                 name={server[0].name}
             />
-            <ChatMessages />
+            <ChatMessages
+                channel={channel}
+                type="channel"
+                // name={server[0].name}
+            />
             <ChatInput
                 name={channel[0]?.name}
                 type="channel"

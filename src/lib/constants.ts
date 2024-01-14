@@ -40,6 +40,7 @@ export const TOOLTIP_SIDE_LEFT = "left";
 // VALIDATION-ERRORS
 export const SERVER_NAME_VALIDATION_ERROR = "Server name is required";
 export const SERVER_IMAGE_VALIDATION_ERROR = "Server image is required";
+export const PASSWORD_LENGTH_VALIDATION_ERROR = "Password is required";
 
 export const ChannelType = {
     TEXT: "text",

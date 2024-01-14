@@ -1,5 +1,4 @@
 import backgroundImage from "@/assets/login-bg.svg";
-import { LoginComponent } from "@/components/auth/login";
 import { RegisterComponent } from "@/components/auth/register";
 
 export const Register = () => {

@@ -6,7 +6,7 @@ interface IChatWelcomeProps {
 }
 
 export const ChatWelcome = ({ channel, type }: IChatWelcomeProps) => {
-    const { name } = channel[0];
+    const name = channel[0]?.name;
 
     return (
         <div className="mb-4 space-y-2 px-4">
@@ -21,9 +21,7 @@ export const ChatWelcome = ({ channel, type }: IChatWelcomeProps) => {
                 {type === "channel"
                     ? `This is the start of the #${name} channel.`
                     : `This is the start of conversation with ${name}.`}
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-zinc-500 dark:bg-zinc-700">
-                <Hash className="h-10 w-10" />
-            </div>
+            </p>
         </div>
     );
 };
